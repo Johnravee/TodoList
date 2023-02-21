@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List - Johnravee</title>
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
@@ -13,20 +15,29 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <section class="section1">
-        <div class="container">
+        <!-- Stamp -->
+        <div class="rubber">Johnrave</div>
+    <section class="container">
+                 
+            <h1>Todo List</h1>
+
             <div class="content">
-                <ol class="list">
-                    
-                </ol>
+                <div class="list-container">
+                    <ol class="list">
+                 
+                    </ol>
+                </div>
+             
+
+              <div class="inputs">
+                <input type="text" id="input" placeholder="Enter your todo's"/>
+                <button class="addbtn">Add</button>
+                <button class="removeall" onclick="removAll()">Delete</button>
+            </div>
             </div>
               
-            <div class="inputs">
-                <input type="text" id="input"/>
-                <button class="addbtn">Note</button>
-            </div>
             
-        </div>
+
     </section>
 </body>
 </html>
