@@ -5,7 +5,7 @@ const add = document.querySelector('.btn');
 
 add.addEventListener('click',() =>{
  
-  if(input.value.length > 1){
+  if(input.value.length > 0){
    let items = JSON.parse(localStorage.getItem('notes'))
    if(items === null){
     //*Create an array
