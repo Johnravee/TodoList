@@ -1,6 +1,6 @@
-const input = document.querySelector('input'); //* default index is 0
+const input = document.querySelector('input'); 
 
-const add = document.querySelector('.btn'); //* default index is 0
+const add = document.querySelector('.btn');
 
 
 add.addEventListener('click',() =>{
