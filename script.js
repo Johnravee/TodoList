@@ -1,11 +1,12 @@
 const input = document.querySelector('input'); 
 
-const add = document.querySelector('.btn');
+const add = document.querySelector('.btn'); 
 
 
 add.addEventListener('click',() =>{
  
-    let items = JSON.parse(localStorage.getItem('notes'))
+  if(input.value.length > 1){
+   let items = JSON.parse(localStorage.getItem('notes'))
    if(items === null){
     //*Create an array
         lst = []
@@ -14,6 +15,10 @@ add.addEventListener('click',() =>{
    lst.unshift(input.value)
    localStorage.setItem('notes', JSON.stringify(lst)); 
 
+  }
+  else{
+   alert("ERROR, Please input a value.")
+  }
 
  //* THE ITEMS
    showItem()
