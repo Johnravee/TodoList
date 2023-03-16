@@ -1,67 +1,75 @@
+const input = document.querySelector('input'); //* default index is 0
 
-//*
-const addbtn = document.querySelector(".addbtn")
-
-//! Adding input value 
-addbtn.addEventListener('click', ()=>{
-    const input = document.querySelector("#input")
-  
-    //*If input have value 
-    if(input.value.length > 1)
-    {
-        //*display
-        const note = document.querySelector(".list")
-    
-        //*Creating a list 
-        let todo = `<li><b>${input.value}</b><button class="remove">X</button</li>`
-        
-        //*inserting a value to display
-        note.insertAdjacentHTML("afterbegin", todo)
-
-        //*Remove list when click
-        let remov = document.querySelector(".remove")
-        remov.addEventListener('click', ()=>{
-            remov.parentElement.remove()
-        })
+const add = document.querySelector('.btn'); //* default index is 0
 
 
-    }
-    //*If input don't have value 
-    else
-    {
-        //*Pop up
-       let warning = prompt("No value receive, Please input a value")
-       
-       //*inserting Pop up value
-       if(warning.length > 1 )
-       {
-         
-        const note = document.querySelector(".list")
-    
-        //*Creating a list 
-        let todo = `<li><b>${warning}</b><button class="remove">X</button</li>`
-        note.insertAdjacentHTML("afterbegin", todo)
-    
-        
-        let remov = document.querySelector(".remove")
-        remov.addEventListener('click', ()=>{
-            remov.parentElement.remove()
-        })
-       }
-    }
+add.addEventListener('click',() =>{
+ 
+    let items = JSON.parse(localStorage.getItem('notes'))
+   if(items === null){
+    //*Create an array
+        lst = []
+   }
+   //*Add value to array
+   lst.unshift(input.value)
+   localStorage.setItem('notes', JSON.stringify(lst)); 
 
+
+ //* THE ITEMS
+   showItem()
 })
 
-//!remove all list in the container
-const removAll = () =>{
-    const note = document.querySelector(".list")
-      //Remove the element
-    note.remove()
 
-    //reload the page to reset
-    location.reload()
+//*Show the value inside localstorage
+const showItem = () =>{
+   let items = JSON.parse(localStorage.getItem('notes'))
+   if(items === null){
+        lst = []
 
+   }else{
+      lst = items;
+   }
+
+
+let displayCon = '';
+let itemShow = document.querySelector('.listItems');
+
+//*to show the created 
+lst.forEach((data, index )=> {
+   
+
+   displayCon += `
+   <div class= "todos">
+   <p class="h6">${data}</p>
+   <button class="btn btn-danger mb-2" onClick="deleteItem(${index})">x</button>
+   </div>
+   `
+})
+itemShow.innerHTML = displayCon;
 }
 
+//* show the value in window
+showItem()
 
+const deleteItem = (item) =>{
 
+   let items = JSON.parse(localStorage.getItem('notes'))
+
+   //*delete value in array 
+   items.splice(item, 1)
+
+   //*set the value again to localstorage
+   localStorage.setItem('notes', JSON.stringify(items));
+
+   //*show the values inside array
+   showItem()
+}
+
+const clearTask = () =>{
+
+//*clear all items in localstorage
+localStorage.clear()
+
+//*show the values inside array
+showItem()
+}

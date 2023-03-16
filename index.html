@@ -2,42 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List - Johnravee</title>
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-    <!-- CSS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="style.css">
-
-    <!-- Js -->
-    <script defer src="script.js"></script>
+    <title>Johnrave - To-do List</title>
+    <script  defer src="script.js"></script>
 </head>
 <body>
-        <!-- Stamp -->
+    
+  
+    <div class="content">
         <div class="rubber">Johnrave</div>
-    <section class="container">
-                 
-            <h1>Todo List</h1>
 
-            <div class="content">
-                <div class="list-container">
-                    <ol class="list">
-                 
-                    </ol>
-                </div>
-             
+        <div class="todo-box">
+         <div class="list-container">
+            <h1>Todo-list</h1>
+            <!-- Display -->
 
-              <div class="inputs">
-                <input type="text" id="input" placeholder="Enter your todo's"/>
-                <button class="addbtn">Add</button>
-                <button class="removeall" onclick="removAll()">Delete</button>
+           <div class="item-con p-3 overflow-y-auto">
+            <div class="d-flex flex-column justify-content-center listItems">
+                    
             </div>
-            </div>
-              
+           </div>        
+        
             
+           
+           <div class="functions">
+                <input class="form-control w-50 m-2 input" type="text" placeholder="Add your task" value="">
+                <button class="btn btn-success w-50 m-1">Add Task</button>
+                <button class="btn btn-danger w-50 m-1" onclick="clearTask()">Delete All</button>
+           </div>
+        </div>
+    </div>
+     </div>
 
-    </section>
 </body>
 </html>
